@@ -20,7 +20,7 @@ public class ProducerService {
 
   public KafkaMessage sendMessage(String key, String message) {
     log.info(String.format("#### -> Producing message -> %s", message));
-    KafkaMessage<Message> kafkaMessage = new KafkaMessage(new Message(message, "huhx"), new Date());
+    KafkaMessage<Message> kafkaMessage = new KafkaMessage(new Message(message, "byte"), new Date());
     try {
       SendResult<String, KafkaMessage> sendResult = this.kafkaTemplate.send(TOPIC, key, kafkaMessage).get();
       log.info("send result = {}", sendResult.toString());
