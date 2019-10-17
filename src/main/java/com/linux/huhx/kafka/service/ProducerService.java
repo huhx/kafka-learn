@@ -9,6 +9,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import static com.linux.huhx.kafka.constant.Constant.TOPIC;
 
@@ -30,6 +31,5 @@ public class ProducerService {
     }
     return kafkaMessage;
   }
-
 
 }

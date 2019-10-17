@@ -16,13 +16,13 @@ public class KafkaController {
   @Resource
   private ProducerService producerService;
 
-  @GetMapping("/{key}/{message}")
-  public KafkaMessage sendKafkaMessage(@PathVariable("key") String key, @PathVariable("message") String message) {
-    return producerService.sendMessage(key, message);
+  @GetMapping("/1/{message}")
+  public KafkaMessage sendKafkaMessage(@PathVariable("message") String message) {
+    return producerService.sendMessage("1", message);
   }
 
   @PostMapping(value = "/publish")
-  public void sendMessageToKafkaTopic(@RequestParam("key") String key, @RequestParam("message") String message) {
+  public void sendMessageToKafkaTopic(  @RequestParam("key") String key, @RequestParam("message") String message) {
     this.producerService.sendMessage(key,message);
   }
 
