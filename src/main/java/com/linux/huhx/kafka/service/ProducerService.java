@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFuture;
 
 import static com.linux.huhx.kafka.constant.Constant.TOPIC;
 
@@ -20,7 +21,7 @@ public class ProducerService {
 
   public KafkaMessage sendMessage(String key, String message) {
     log.info(String.format("#### -> Producing message -> %s", message));
-    KafkaMessage<Message> kafkaMessage = new KafkaMessage(new Message(message, "huhx"), new Date());
+    KafkaMessage<Message> kafkaMessage = new KafkaMessage(new Message(message, "rakkant"), new Date());
     try {
       SendResult<String, KafkaMessage> sendResult = this.kafkaTemplate.send(TOPIC, key, kafkaMessage).get();
       log.info("send result = {}", sendResult.toString());
@@ -29,4 +30,6 @@ public class ProducerService {
     }
     return kafkaMessage;
   }
+
+
 }
