@@ -1,6 +1,5 @@
 package com.linux.huhx.kafka.controller;
 
-import com.linux.huhx.kafka.domain.KafkaMessage;
 import com.linux.huhx.kafka.service.ProducerService;
 import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +14,7 @@ public class KafkaController {
   private ProducerService producerService;
 
   @GetMapping()
-  public KafkaMessage sendKafkaMessage() {
+  public String sendKafkaMessage() throws Exception {
     return producerService.sendMessage();
   }
 }
