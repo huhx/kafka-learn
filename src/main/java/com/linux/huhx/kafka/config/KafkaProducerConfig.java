@@ -16,8 +16,6 @@ import java.util.Map;
 @Configuration
 public class KafkaProducerConfig {
 
-  private KafkaTopicConfig bootstrapAddress;
-
   @Bean
   public ProducerFactory<String, KafkaMessage> producerFactory() {
     Map<String, Object> configProps = new HashMap<>();

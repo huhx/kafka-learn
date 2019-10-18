@@ -15,8 +15,6 @@ import static org.apache.kafka.clients.consumer.ConsumerConfig.GROUP_ID_CONFIG;
 @Configuration
 public class KafkaTopicConfig {
 
-  public String bootstrapAddress;
-  public String groupId;
 
   @Bean
   public KafkaAdmin kafkaAdmin() {
