@@ -17,4 +17,9 @@ public class KafkaController {
   public String sendKafkaMessage() throws Exception {
     return producerService.sendMessage();
   }
+
+  @GetMapping("/random")
+  public String sendMessageWithRandomTime() throws Exception {
+    return producerService.sendMessageWithRandomTime();
+  }
 }
